@@ -1,0 +1,53 @@
+1. What is the relationship between def statements and lambda expressions ?
+Ans:-
+The def statement is used to define a named function with a block of code. It follows the syntax def function_name(parameters): and allows for multiple statements within the function's body. 
+On the other hand, a lambda expression (also known as an anonymous function) is a way to create small, one-line functions without a name. It follows the syntax lambda parameters: expression and can only contain a single expression. 
+def statements have a more extensive syntax with a function name, parameters enclosed in parentheses, and a colon to indicate the start of the function body. Lambda expressions have a compact syntax without a function name and with the expression directly following the colon.
+Function Complexity: def statements allow for multiple statements and more complex function bodies, while lambda expressions are limited to a single expression.
+Function Name: def statements define named functions that can be called using their name, whereas lambda expressions are anonymous and are often used in situations where a small, throwaway function is needed.
+2. What is the benefit of lambda?
+Ans:-
+Concise Syntax: Lambda expressions allow you to define functions with a compact and concise syntax. They can be defined in a single line of code without the need for a full function definition using the def statement. This can make your code more readable and reduce the need for defining small, one-time-use functions.
+Anonymous Functions: Lambda expressions create anonymous functions, meaning they don't require a specific name. They are typically used when you need a simple function without the need to assign it a name. This is particularly useful in situations where you only need a function for a short period of time or when passing a function as an argument to another function (e.g., in higher-order functions like map(), filter(), or sort()).
+Function as a First-Class Object: In Python, functions are considered first-class objects, which means they can be assigned to variables, passed as arguments to other functions, or returned as values from other functions. Lambda expressions enable you to create functions on the fly and use them in these scenarios without having to define a named function separately.
+Readability and Maintainability: Lambda expressions can enhance the readability and maintainability of your code, especially in situations where the function logic is simple and does not require a complex block of code. By using a lambda expression instead of defining a separate named function, you can keep the function's definition closer to its usage, making the code more self-contained and easier to understand.
+3. Compare and contrast map, filter, and reduce.
+Ans:-
+map() applies a function to every item in an iterable and returns an iterator of the transformed values.
+filter() applies a function to every item in an iterable and returns an iterator of only the items for which the function returns True.
+reduce() applies a function cumulatively to the items of an iterable, reducing it to a single valu
+4. What are function annotations, and how are they used?
+Ans:-
+Function annotations in Python are a way to attach metadata to the parameters and return value of a function. They provide a way to add type hints or other information to the function's signature, although they do not enforce any runtime behavior or type checking.
+Function annotations are specified by placing colon-separated expressions after the parameter list or after the closing parenthesis of the parameter list for the return value.
+def add(a: int, b: int) -> int:
+    return a + b
+print(add.__annotations__)  
+and output: {'a': int, 'b': int, 'return': int}
+5. What are recursive functions, and how are they used?
+Ans:-
+Recursive functions are functions that call themselves within their own function body. They solve problems by breaking them down into smaller, similar subproblems and solving them recursively until reaching a base case. Recursive functions typically have two components:
+1. Base Case: It is the condition that determines when the recursion should stop. When the base case is met, the function stops calling itself and returns a specific value.
+2.Recursive Call: It is the part of the function where it calls itself with modified inputs to solve a smaller subproblem. The recursive call is usually combined with some computation or manipulation of the inputs.
+Use cases of  recursive functions:-
+Problems with repetitive substructures: Recursive functions are suitable for solving problems that exhibit repetitive substructures. By breaking the problem down into smaller subproblems and solving them recursively, the overall problem can be solved efficiently.
+Tree or graph traversal: Recursive functions are commonly used to traverse data structures like trees or graphs. The function calls itself to explore and process each node or element in the data structure, often with modifications to the inputs or additional parameters to track the traversal state.
+Divide and conquer algorithms: Recursive functions are often employed in divide and conquer algorithms, where a problem is divided into smaller subproblems, solved recursively, and then combined to obtain the final result. Examples include merge sort and quicksort.
+6. What are some general design guidelines for coding functions?
+Ans:-
+Function Purpose and Cohesion: Each function should have a clear and well-defined purpose. It should perform a single task or responsibility and follow the principle of "Single Responsibility." Functions with high cohesion are easier to understand, test, and maintain.
+Function Naming: Choose descriptive and meaningful names for your functions that accurately represent their purpose. Use verbs or verb phrases to indicate actions performed by the function. Avoid generic names and be consistent with naming conventions in your codebase.
+Function Length and Complexity: Functions should be kept relatively short and focused. Aim for functions that fit on a single screen without excessive scrolling. If a function becomes too long or complex, consider breaking it down into smaller functions with clear responsibilities.
+Function Parameters: Minimize the number of parameters a function requires. Excessive parameters can make functions harder to understand and use. Consider grouping related parameters into data structures (e.g., dictionaries or namedtuples) if they are commonly used together.
+Function Return Values: Functions should have clear and consistent return values. Document the expected return type and provide appropriate error handling. If a function modifies mutable objects in place, it is good practice to return None explicitly.
+Function Documentation: Include docstrings to provide clear and concise documentation for your functions. Document the purpose, parameters, return values, and any exceptions raised. Good documentation helps other developers understand how to use the function correctly.
+Function Modularity and Reusability: Design functions to be modular and reusable. Avoid hard-coding specific values or assumptions that limit their applicability. Instead, make functions flexible and parameterizable to accommodate various use cases.
+Error Handling: Properly handle and communicate errors within functions. Use exceptions to indicate exceptional conditions and raise meaningful error messages or custom exceptions when appropriate. Gracefully handle expected errors and provide clear feedback to users.
+Function Testing: Write test cases to verify the correctness of your functions. Use unit testing frameworks to automate the testing process and ensure that functions behave as expected. Test for different input scenarios, including edge cases and invalid inputs.
+Code Style and Consistency: Follow the coding style guidelines of your programming language or project. Use consistent indentation, spacing, and naming conventions to maintain a uniform codebase. Consider using linting tools or code formatters to enforce style guidelines.
+By adhering to these guidelines, you can create functions that are easier to understand, test, and maintain. Writing clean and well-designed functions contributes to the overall quality and readability of your codebase.
+7. Name three or more ways that functions can communicate results to a caller.
+Ans:-
+Return Statement: The most straightforward way for a function to communicate a result is by using the return statement. The return statement allows a function to pass a value (or values) back to the caller. The returned value can be assigned to a variable or used directly in expressions.
+Global Variables: Functions can also communicate results by modifying global variables. If a function modifies a global variable's value, the caller can access the updated value after the function call. However, using global variables to communicate results is generally discouraged, as it can make code harder to understand and maintain, and can lead to unexpected side effects.
+Mutable Objects: Functions can modify mutable objects, such as lists or dictionaries, which can communicate results back to the caller. Since mutable objects are passed by reference, any modifications made to the object inside the function are visible outside the function.
